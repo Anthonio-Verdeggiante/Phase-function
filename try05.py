@@ -20,16 +20,44 @@ re_data2 = np.real(data02)
 phase1 = np.zeros(a)
 phase2 = np.zeros(a)
 
-time = np.zeros(len)
+time = np.zeros(a)
+
+# Расчет агрумента
 
 for i in range(len(phase1)):
 
     phase1[i] = np.arctan(im_data1[i*points]/re_data1[i*points])
-    time[i] = i/a
+    time[i] = i
 
 for i in range(a):
 
     phase2[i] = np.arctan(im_data2[i*points]/re_data2[i*points])
+
+# График мнимой части от времени
+im_data11 = np.zeros(a)
+im_data22 = np.zeros(a)
+
+for i in range(a):
+    im_data11[i] = im_data1[i]*points
+
+for i in range(a):
+    im_data22[i] = im_data2[i]*points
+
+plt.figure()
+plt.plot(time,im_data11, marker='.')
+plt.xlabel('Время')
+plt.ylabel('Значение')
+plt.grid(True)
+plt.title('Мнимая часть. Файл 1')
+
+plt.figure()
+plt.plot(time, im_data22, marker='.')
+plt.xlabel('Время')
+plt.ylabel('Значение')
+plt.grid(True)
+plt.title('Мнимая часть. Файл 2')
+plt.show()
+# График аргумента от времени
 
 
 plt.figure()
@@ -37,11 +65,12 @@ plt.plot(time,phase1, marker='.')
 plt.xlabel('Время')
 plt.ylabel('Значение')
 plt.grid(True)
-
+plt.title('Фаза. Файл 1')
 
 plt.figure()
 plt.plot(time, phase2, marker='.')
 plt.xlabel('Время')
 plt.ylabel('Значение')
 plt.grid(True)
+plt.title('Фаза. Файл 2')
 plt.show()
