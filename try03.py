@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy as sc
 
-phase01 = 'test_file_250424_1.bin'
-phase02 = 'test_file_250424_2.bin'
+phase01 = 'data/test_file_250424_1.bin'
+phase02 = 'data/test_file_250424_2.bin'
 
 data01 = np.fromfile(phase01,dtype=np.complex64)
 data02 = np.fromfile(phase02,dtype=np.complex64)
